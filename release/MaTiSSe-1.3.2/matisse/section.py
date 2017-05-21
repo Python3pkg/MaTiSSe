@@ -2,9 +2,9 @@
 """
 section.py, module definition of Section class.
 """
-from __future__ import print_function
+
 from collections import OrderedDict
-from subsection import Subsection
+from .subsection import Subsection
 
 
 class Section(object):

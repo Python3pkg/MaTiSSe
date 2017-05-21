@@ -2,7 +2,7 @@
 """
 matisse_config.py, module definition of MatisseConfig class.
 """
-from __future__ import print_function
+
 import logging
 from dirsync import sync
 import os

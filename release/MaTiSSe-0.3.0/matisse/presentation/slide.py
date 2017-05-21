@@ -75,7 +75,7 @@ class Slide(object):
     self.title = title
     self.data = OrderedDict()
     if data:
-      for key, val in data.items():
+      for key, val in list(data.items()):
         self.data[key] = val
     self.data['slidetitle'] = self.title
     self.data['slidenumber'] = str(self.number)
@@ -103,8 +103,8 @@ class Slide(object):
       self.overtheme.slide.adjust_dims()
       self.raw_body = seditor.strip_overtheme(self.raw_body)
       if __config__.verbose:
-        print('Found overriding theme for slide n. ' + str(self.number))
-        print(self.get_css(only_custom=True))
+        print(('Found overriding theme for slide n. ' + str(self.number)))
+        print((self.get_css(only_custom=True)))
     return
 
   def get_css(self, only_custom=False):

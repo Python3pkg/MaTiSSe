@@ -2,9 +2,9 @@
 """
 chapter.py, module definition of Chapter class.
 """
-from __future__ import print_function
+
 from collections import OrderedDict
-from section import Section
+from .section import Section
 
 
 class Chapter(object):

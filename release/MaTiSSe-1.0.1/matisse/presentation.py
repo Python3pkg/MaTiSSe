@@ -2,21 +2,21 @@
 """
 presentation.py, module definition of Presentation class.
 """
-from __future__ import print_function
+
 from collections import OrderedDict
 import os
 # from shutil import copyfile, copytree, rmtree
 from shutil import copytree, rmtree
 from yaml import load_all, YAMLError
 from yattag import Doc, indent
-from chapter import Chapter
-from metadata import Metadata
-from parser import Parser
-from position import Position
-from section import Section
-from slide import Slide
-from subsection import Subsection
-from theme import Theme
+from .chapter import Chapter
+from .metadata import Metadata
+from .parser import Parser
+from .position import Position
+from .section import Section
+from .slide import Slide
+from .subsection import Subsection
+from .theme import Theme
 
 
 class Presentation(object):

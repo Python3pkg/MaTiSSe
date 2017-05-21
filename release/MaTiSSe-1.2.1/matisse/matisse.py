@@ -2,12 +2,12 @@
 """
 MaTiSSe.py, Markdown To Impressive Scientific Slides
 """
-from __future__ import print_function
+
 import argparse
 import os
 import sys
-from matisse_config import MatisseConfig
-from presentation import Presentation
+from .matisse_config import MatisseConfig
+from .presentation import Presentation
 
 __appname__ = "MaTiSSe.py"
 __description__ = "MaTiSSe.py, Markdown To Impressive Scientific Slides"

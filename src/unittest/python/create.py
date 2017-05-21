@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """Script for creating tests reference values"""
-from __future__ import print_function
+
 import os
 import subprocess
 import sys

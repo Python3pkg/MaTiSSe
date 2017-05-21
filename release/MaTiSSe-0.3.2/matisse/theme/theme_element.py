@@ -96,7 +96,7 @@ class ThemeElement(object):
     'val1'
     """
     if other.active:
-      for key,val in self.data.data.items():
+      for key,val in list(self.data.data.items()):
         if not val[1]:
           if key in other.data.data:
             self.data.data[key] = other.data.data[key]
@@ -129,7 +129,7 @@ class ThemeElement(object):
     >>> eval(elem.data.data['metadata'][0])[0]
     'slidetitle'
     """
-    for key,val in self.data.data.items():
+    for key,val in list(self.data.data.items()):
       if val[1]:
         if key == 'metadata':
           self.data.data[key] = [ast.literal_eval(str(val[0])),True]

@@ -49,11 +49,11 @@ def pprint(presentation,cliargs):
   if cliargs.print_preamble:
     print(presentation)
   if cliargs.print_css:
-    print(presentation.get_css())
+    print((presentation.get_css()))
   if cliargs.print_options:
-    print(presentation.get_options())
+    print((presentation.get_options()))
   if cliargs.print_highlight_styles:
-    print(__config__.str_highlight_styles())
+    print((__config__.str_highlight_styles()))
   return
 
 def main():
@@ -78,7 +78,7 @@ def main():
       output = os.path.normpath(output)+"/"
       make_output_tree(output=output)
       if __config__.verbose:
-        print('Parsing source '+cliargs.input)
+        print(('Parsing source '+cliargs.input))
       presentation = Presentation(source=source)
       presentation.save(output=output)
       pprint(presentation=presentation,cliargs=cliargs)

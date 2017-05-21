@@ -56,7 +56,7 @@ class Sidebar(ThemeElement):
     'R'
     """
     super(Sidebar,self).check_specials()
-    for key,val in self.data.data.items():
+    for key,val in list(self.data.data.items()):
       if val[1]:
         if key == 'position':
           self.position = val[0]
@@ -114,11 +114,11 @@ class Sidebar(ThemeElement):
     """
     s_h = 100 # slide sidebar height (in percent %); should be always 100% initially
     if len(headers)>0:
-      for header in headers.values():
+      for header in list(headers.values()):
         if header.active:
           s_h -= int(header.data.data['height'][0].strip('%'))
     if len(footers)>0:
-      for footer in footers.values():
+      for footer in list(footers.values()):
         if footer.active:
           s_h -= int(footer.data.data['height'][0].strip('%'))
     self.data.data['height'] = [str(s_h)+'%',True]

@@ -142,7 +142,7 @@ class Presentation(object):
     self.toc.get(sections=self.sections)
     if __config__.verbose:
       print('\nTable of Contents')
-      print(self.toc)
+      print((self.toc))
     return
 
   @staticmethod
@@ -173,7 +173,7 @@ class Presentation(object):
       message.append('\nThe correct usage is the follwong:')
       message.append('\n1. place the subsection/data slides (e.g. "## subsection ### sllide") after the first defined section;')
       message.append('\n2. not use at all the section partitioning.\n')
-      print(''.join(message))
+      print((''.join(message)))
     return
 
   def get_options(self):

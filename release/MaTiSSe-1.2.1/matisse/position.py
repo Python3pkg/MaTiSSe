@@ -2,7 +2,7 @@
 """
 position.py, module definition of Position class.
 """
-from __future__ import print_function
+
 
 
 class Position(object):

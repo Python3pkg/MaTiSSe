@@ -4,7 +4,7 @@ figure.py, module definition of Figure class.
 """
 import re
 from yattag import Doc
-from box import Box
+from .box import Box
 
 
 class Figure(Box):

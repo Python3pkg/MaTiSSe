@@ -25,8 +25,8 @@ copyright @2014 Konrad Wasowicz <exaroth@gmail.com>
 """
 
 
-from __future__ import absolute_import
-from __future__ import unicode_literals
+
+
 import markdown
 from markdown import Extension
 from markdown.preprocessors import Preprocessor

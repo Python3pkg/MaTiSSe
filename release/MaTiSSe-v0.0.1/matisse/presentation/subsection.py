@@ -67,7 +67,7 @@ class Subsection(object):
     self.title        = title
     self.data         = OrderedDict()
     if data:
-      for key,val in data.items():
+      for key,val in list(data.items()):
         self.data[key] = val
     self.data['subsectiontitle' ] = self.title
     self.data['subsectionnumber'] = str(self.number)
@@ -84,7 +84,7 @@ class Subsection(object):
       message.append('\nThe data:\n"""\n')
       message.append(self.remainder)
       message.append('"""\nis placed without "### slide" section into the current section/subsection!')
-      print(''.join(message))
+      print((''.join(message)))
     return
 
   def get_slides(self,theme):

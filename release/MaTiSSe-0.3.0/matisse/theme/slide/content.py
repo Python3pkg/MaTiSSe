@@ -56,15 +56,15 @@ class Content(ThemeElement):
     s_w = 100 # slide content width (in percent %); should be always 100% initially
     s_h = 100 # slide content height (in percent %); should be always 100% initially
     if len(headers)>0:
-      for header in headers.values():
+      for header in list(headers.values()):
         if header.active:
           s_h -= int(header.data.data['height'][0].strip('%'))
     if len(footers)>0:
-      for footer in footers.values():
+      for footer in list(footers.values()):
         if footer.active:
           s_h -= int(footer.data.data['height'][0].strip('%'))
     if len(sidebars)>0:
-      for sidebar in sidebars.values():
+      for sidebar in list(sidebars.values()):
         if sidebar.active:
           s_w -= int(sidebar.data.data['width'][0].strip('%'))
     self.data.data['width']  = [str(s_w)+'%',True]

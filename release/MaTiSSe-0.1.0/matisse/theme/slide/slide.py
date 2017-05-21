@@ -90,13 +90,13 @@ class Slide(ThemeElement):
     string = '\n  Global slide\n'
     string += super(Slide, self).__str__()
     if self.has_header():
-      for header in self.headers.values():
+      for header in list(self.headers.values()):
         string += '\n  Header n.'+str(header.number)+'\n'+str(header)
     if self.has_footer():
-      for footer in self.footers.values():
+      for footer in list(self.footers.values()):
         string += '\n  Footer n.'+str(footer.number)+'\n'+str(footer)
     if self.has_sidebar():
-      for sidebar in self.sidebars.values():
+      for sidebar in list(self.sidebars.values()):
         string += '\n  Sidebar n.'+str(sidebar.number)+'\n'+str(sidebar)
     string += '\n  Content\n'+str(self.content)
     return string
@@ -366,7 +366,7 @@ class Slide(ThemeElement):
 
     The check_specials method of other contained elements is called.
     """
-    for key,val in self.data.data.items():
+    for key,val in list(self.data.data.items()):
       if val[1]:
         if (key == 'slide-transition' or
             key == 'data-scale' or
@@ -376,13 +376,13 @@ class Slide(ThemeElement):
           self.data.data[key] = [val[0],True]
     self.content.check_specials()
     if self.has_header():
-      for hdr in self.headers.values():
+      for hdr in list(self.headers.values()):
         hdr.check_specials()
     if self.has_footer():
-      for ftr in self.footers.values():
+      for ftr in list(self.footers.values()):
         ftr.check_specials()
     if self.has_sidebar():
-      for sbr in self.sidebars.values():
+      for sbr in list(self.sidebars.values()):
         sbr.check_specials()
     return
 
@@ -391,7 +391,7 @@ class Slide(ThemeElement):
     """
     self.content.adjust_dims(headers=self.headers,footers=self.footers,sidebars=self.sidebars)
     if self.has_sidebar():
-      for sidebar in self.sidebars.values():
+      for sidebar in list(self.sidebars.values()):
         if sidebar.active:
           sidebar.adjust_dims(headers=self.headers,footers=self.footers)
     return
@@ -417,15 +417,15 @@ class Slide(ThemeElement):
     custom = {}
     custom['slide-content'] = self.content.data.get_custom(chk_specials=chk_specials)
     if self.has_header():
-      for header in self.headers.values():
+      for header in list(self.headers.values()):
         if header.active:
           custom['slide-header_'+str(header.number)] = header.data.get_custom(chk_specials=chk_specials)
     if self.has_footer():
-      for footer in self.footers.values():
+      for footer in list(self.footers.values()):
         if footer.active:
           custom['slide-footer_'+str(footer.number)] = footer.data.get_custom(chk_specials=chk_specials)
     if self.has_sidebar():
-      for sidebar in self.sidebars.values():
+      for sidebar in list(self.sidebars.values()):
         if sidebar.active:
           custom['slide-sidebar_'+str(sidebar.number)] = sidebar.data.get_custom(chk_specials=chk_specials)
     return custom
@@ -445,13 +445,13 @@ class Slide(ThemeElement):
     string = ['\n\nSlide Global']
     string.append(self.data.get_options())
     if self.has_header():
-      for header in self.headers.values():
+      for header in list(self.headers.values()):
         string.append(header.get_options())
     if self.has_footer():
-      for footer in self.footers.values():
+      for footer in list(self.footers.values()):
         string.append(footer.get_options())
     if self.has_sidebar():
-      for sidebar in self.sidebars.values():
+      for sidebar in list(self.sidebars.values()):
         string.append(sidebar.get_options())
     string.append(self.content.get_options())
     return ''.join(string)
@@ -479,13 +479,13 @@ class Slide(ThemeElement):
     """
     css = ["\n.slide {\n  display: block;\n  padding: 0;\n  margin: 0;"+super(Slide,self).get_css(only_custom=only_custom)+"\n}\n"]
     if self.has_header():
-      for header in self.headers.values():
+      for header in list(self.headers.values()):
         css.append(header.get_css(only_custom=only_custom))
     if self.has_footer():
-      for footer in self.footers.values():
+      for footer in list(self.footers.values()):
         css.append(footer.get_css(only_custom=only_custom))
     if self.has_sidebar():
-      for sidebar in self.sidebars.values():
+      for sidebar in list(self.sidebars.values()):
         css.append(sidebar.get_css(only_custom=only_custom))
     css.append(self.content.get_css(only_custom=only_custom))
     if as_list:
@@ -509,12 +509,12 @@ class Slide(ThemeElement):
     strip_source = self.data.strip(source)
     strip_source = self.content.strip(strip_source)
     if self.has_header():
-      for hdr in self.headers.values():
+      for hdr in list(self.headers.values()):
         strip_source = hdr.strip(strip_source)
     if self.has_footer():
-      for ftr in self.footers.values():
+      for ftr in list(self.footers.values()):
         strip_source = ftr.strip(strip_source)
     if self.has_sidebar():
-      for sdr in self.sidebars.values():
+      for sdr in list(self.sidebars.values()):
         strip_source = sdr.strip(strip_source)
     return strip_source

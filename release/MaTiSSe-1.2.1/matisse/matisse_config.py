@@ -2,7 +2,7 @@
 """
 matisse_config.py, module definition of MatisseConfig class.
 """
-from __future__ import print_function
+
 import os
 from shutil import copyfile, copytree, rmtree
 import sys

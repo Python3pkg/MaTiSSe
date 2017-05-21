@@ -3,15 +3,15 @@
 """
 theme.py, module definition of Theme class.
 """
-from __future__ import print_function
+
 from copy import deepcopy
 from collections import OrderedDict
 from yaml import load_all, YAMLError
-from box import Box
-from note import Note
-from figure import Figure
-from table import Table
-from video import Video
+from .box import Box
+from .note import Note
+from .figure import Figure
+from .table import Table
+from .video import Video
 
 
 class Theme(object):
@@ -147,7 +147,7 @@ class Theme(object):
           found = False
           for mycss in my_element:
             if isinstance(css, dict):
-              if css.keys()[0] in mycss:
+              if list(css.keys())[0] in mycss:
                 found = True
             elif css in mycss:
               found = True

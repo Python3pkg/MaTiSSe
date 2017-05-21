@@ -67,7 +67,7 @@ class Data(object):
   def __str__(self):
     string = []
     if self.data:
-      string = ['  '+str(k)+' : '+str(v)+'\n' for k,v in self.data.items()]
+      string = ['  '+str(k)+' : '+str(v)+'\n' for k,v in list(self.data.items())]
     return ''.join(string)
 
   def __copy__(self):
@@ -161,7 +161,7 @@ class Data(object):
     '\\noption1 = val1'
     """
     string = []
-    for key,val in self.data.items():
+    for key,val in list(self.data.items()):
       string.append('\n'+key+' = '+str(val[0]))
     return ''.join(string)
 
@@ -185,7 +185,7 @@ class Data(object):
     '\\n  option1: val1;'
     """
     css = ''
-    for key,val in self.data.items():
+    for key,val in list(self.data.items()):
       special = False
       if self.special_keys and key in self.special_keys:
         special = True
@@ -217,7 +217,7 @@ class Data(object):
     "  option1 : ['val1', True]\\n"
     """
     custom = copy.deepcopy(self)
-    for key,val in custom.data.items():
+    for key,val in list(custom.data.items()):
       special = False
       if self.special_keys and key in self.special_keys:
         special = True
@@ -248,7 +248,7 @@ class Data(object):
     >>> mydata.data['option2'][0]
     'val2'
     """
-    for key,val in self.data.items():
+    for key,val in list(self.data.items()):
       if not val[1]:
         if key in otherdata.data and otherdata.data[key][1]:
           self.data[key] = otherdata.data[key]

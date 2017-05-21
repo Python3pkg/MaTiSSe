@@ -62,7 +62,7 @@ class Section(object):
     self.title       = title
     self.data        = OrderedDict()
     if data:
-      for key,val in data.items():
+      for key,val in list(data.items()):
         self.data[key] = val[0]
     self.data['sectiontitle' ] = self.title
     self.data['sectionnumber'] = str(self.number)
@@ -88,7 +88,7 @@ class Section(object):
       message.append('\nThe correct usage is the follwong:')
       message.append('\n1. place the data slides (e.g. "### slide") after the first defined subsection;')
       message.append('\n2. not use at all the subsection partitioning.\n')
-      print(''.join(message))
+      print((''.join(message)))
     return
 
   def get_subsections(self):

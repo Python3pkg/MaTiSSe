@@ -82,7 +82,7 @@ class Metadata(object):
       source without metadata
     """
     self.data.get(source)
-    for key,val in self.data.data.items():
+    for key,val in list(self.data.data.items()):
       if val[1]:
         if (key == 'authors' or
             key == 'authors_short' or

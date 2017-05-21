@@ -4,8 +4,8 @@ table.py, module definition of Table class.
 """
 import re
 from yattag import Doc
-from box import Box
-from markdown_utils import markdown2html
+from .box import Box
+from .markdown_utils import markdown2html
 
 
 class Table(Box):

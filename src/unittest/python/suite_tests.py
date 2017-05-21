@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """Testing columns environment"""
 # import doctest
-from __future__ import print_function
+
 import os
 from shutil import rmtree
 import sys
